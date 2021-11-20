@@ -4,6 +4,8 @@ const UserTable = ({
   users,
   updateSortKey,
   updateSortAsc,
+  updateSelectedUser,
+  openUserModal,
   currentSortKey,
   currentSortAsc
 }) => {
@@ -47,7 +49,12 @@ const UserTable = ({
       </thead>
       <tbody>
         {users.map((user) => (
-          <UserRow key={user.id} user={user} />
+          <UserRow
+            key={user.id}
+            user={user}
+            updateSelectedUser={updateSelectedUser}
+            openUserModal={openUserModal}
+          />
         ))}
       </tbody>
     </table>
