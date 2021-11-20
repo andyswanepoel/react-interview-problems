@@ -60,6 +60,8 @@ const App = () => {
           users={sortedUsers}
           updateSortKey={updateSortKey}
           updateSortAsc={updateSortAsc}
+          currentSortKey={sortKey}
+          currentSortAsc={sortAsc}
         />
       )}
     </div>
