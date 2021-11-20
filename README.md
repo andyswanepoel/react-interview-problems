@@ -2,13 +2,14 @@
  
 This will be a collection of problem statements and solutions that I can use for interview preparation.
 
-## API Call
+## User Table
 
-- [ ] Make a call to an API to [Random User Generator API](https://randomuser.me/api/?results=20)
-- [ ] Return user data
-- [ ] Display on page
+- [x] Make a call to an API to [Random User Generator API](https://randomuser.me)
+- [x] Return user data
+- [x] Display on page
 
 ### Displaying Data
 
-Firstly, I'll display the table which would allow sorting by clicking on the header.
-Secondly, I'll allow the user to click on a row and pop up a modal to show the use
+The data will be displayed in a table that will allow sorting when clicking on a header element.
+
+If the end user clicks on a row, it will trigger a modal that shows some additional information for that user.
