@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import UserTable from "./components/UserTable";
 import UserModal from "./components/UserModal";
-import "./App.css";
 
 const App = () => {
   const [users, setUsers] = useState([]);
