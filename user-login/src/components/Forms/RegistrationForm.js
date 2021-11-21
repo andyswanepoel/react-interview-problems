@@ -1,10 +1,19 @@
+import { useState, useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import Input from "./Input";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 
 import useInput from "../../hooks/use-input";
+import ActiveUserContext from "../../store/user-context";
+
+import { dummyUsers } from "../../dummy-users";
 
 const RegistrationForm = () => {
+  const [formError, setFormError] = useState("");
+  const activeUserContext = useContext(ActiveUserContext);
+
   const [
     firstNameValue,
     firstNameInputInvalid,
@@ -79,13 +88,43 @@ const RegistrationForm = () => {
     }
   ]);
 
+  const formIsValid =
+    !firstNameInputInvalid &&
+    !lastNameInputInvalid &&
+    !userNameInputInvalid &&
+    !emailAddressInputInvalid &&
+    !passwordInputInvalid;
+
   const submitHandler = (e) => {
     e.preventDefault();
+    setFormError("");
+
     firstNameInputBlurHandler(true);
     lastNameInputBlurHandler(true);
     userNameInputBlurHandler(true);
     emailAddressInputBlurHandler(true);
     passwordInputBlurHandler(true);
+
+    if (!formIsValid) return;
+
+    // Check if user already exists
+    if (
+      dummyUsers.find((user) => user.email === emailAddressValue) !== undefined
+    ) {
+      setFormError("A user already exists with that email.");
+      return;
+    }
+
+    // Set current user using context
+    const user = {
+      id: uuidv4(),
+      first_name: firstNameValue,
+      last_name: lastNameValue,
+      user_name: userNameValue,
+      email: emailAddressValue,
+      password: passwordValue
+    };
+    activeUserContext.logIn(user);
   };
   return (
     <Card>
@@ -141,6 +180,7 @@ const RegistrationForm = () => {
           inputBlurHandler={passwordInputBlurHandler}
         />
         <Button type="submit" text="Submit" />
+        {formError !== "" && <p style={{ color: "red" }}>{formError}</p>}
       </form>
     </Card>
   );
