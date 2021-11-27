@@ -13,13 +13,13 @@ Build an application that will allow a user to search for a home. Users will be 
 
 This is a list of components, in order of importance to the App:
 
-- [ ] Search Form (dropdowns)
-  - [ ] Number of beds
-  - [ ] Number of baths
-  - [ ] Size
-  - [ ] Location
-  - [ ] Parking
-- [ ] Table for displaying data
+- [x] Search Form (dropdowns)
+  - [x] Number of beds
+  - [x] Number of baths
+  - [x] Size
+  - [x] Location
+  - [x] Parking
+- [X] Table for displaying data
 - [ ] Registration
 - [ ] Login
 - [ ] Routing

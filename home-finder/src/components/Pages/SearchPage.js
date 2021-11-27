@@ -1,7 +1,17 @@
 import Section from "../Layout/Section";
 import HomeSearch from "../Forms/HomeSearch";
+import SearchResultsTable from "../Tables/SearchResultsTable";
+import { useState } from "react";
 
 const SearchPage = () => {
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchInitiated, setsearchInitiated] = useState(false);
+
+  const updateSearchResults = (newResults) => {
+    if (searchInitiated === false) setsearchInitiated(true);
+    setSearchResults(newResults);
+  };
+
   return (
     <>
       <Section>
@@ -11,11 +21,29 @@ const SearchPage = () => {
         </p>
       </Section>
       <Section>
-        <HomeSearch />
+        <HomeSearch updateSearchResults={updateSearchResults} />
       </Section>
-      {/* <Section>
-        <HomeSearchResults />
-      </Section> */}
+      {searchInitiated === true && (
+        <Section>
+          {searchResults.length === 0 && (
+            <p style={{ textAlign: "center" }}>
+              No results found. Please update your criteria or try again later.
+            </p>
+          )}
+          {searchResults.length > 0 && (
+            <SearchResultsTable
+              headers={[
+                "Location",
+                "Size (sqft)",
+                "Bedrooms",
+                "Bathrooms",
+                "Parking"
+              ]}
+              results={searchResults}
+            />
+          )}
+        </Section>
+      )}
     </>
   );
 };

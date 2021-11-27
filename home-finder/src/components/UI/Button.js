@@ -1,6 +1,8 @@
 const buttonStyles = {
+  display: "block",
   width: "30rem",
   maxWidth: "95%",
+  margin: "0 auto",
   outline: "none",
   border: "0.2rem solid #456899",
   backgroundColor: "#84afeb",

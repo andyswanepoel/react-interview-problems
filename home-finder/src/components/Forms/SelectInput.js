@@ -29,7 +29,11 @@ const SelectInput = ({
       >
         <option value="">{placeholder}</option>
         {options.map((opt) => {
-          return <option value={opt.value}>{opt.displayText}</option>;
+          return (
+            <option key={opt.value} value={opt.value}>
+              {opt.displayText}
+            </option>
+          );
         })}
       </select>
       {invalid === true && (

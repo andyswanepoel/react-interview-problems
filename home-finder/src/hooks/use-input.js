@@ -21,6 +21,7 @@ const useInput = (validations) => {
 
   return [
     value,
+    valueValid,
     inputInvalid,
     errorMessage,
     valueChangeHandler,

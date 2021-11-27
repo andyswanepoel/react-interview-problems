@@ -38,10 +38,10 @@
 .icon-open {
   background-color: transparent;
   &::after {
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) translate(0.3rem, 0.3rem);
   }
   &::before {
-    transform: rotate(45deg);
+    transform: rotate(45deg) translate(0.3rem, -0.3rem);
   }
 }
 
@@ -50,7 +50,7 @@
   width: 25rem;
   background-color: var(--primary-bg-colour);
   padding: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.9rem;
   border: 0.1rem solid var(--secondary-colour);
   border-top-width: 1rem;
   list-style-type: none;
