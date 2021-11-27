@@ -1,0 +1,15 @@
+.container {
+  position: relative;
+  background-color: var(--primary-bg-colour);
+  padding: 1rem 2rem;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.2rem solid var(--secondary-colour);
+}
+
+.logo {
+  display: block;
+  width: 15rem;
+  height: auto;
+}
