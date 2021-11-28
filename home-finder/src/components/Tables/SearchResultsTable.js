@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import useTableSort from "../../hooks/use-table-sort";
 import styles from "./Tables.module.scss";
 
@@ -73,7 +72,7 @@ const SearchResultsTable = ({ headers, results }) => {
                   <td className={styles["table-cell"]}>{result.bed}</td>
                   <td className={styles["table-cell"]}>{result.bath}</td>
                   <td className={styles["table-cell"]}>
-                    {result.parking ? "Yes" : "No"}
+                    {result.parking == "true" ? "Yes" : "No"}
                   </td>
                 </tr>
               );

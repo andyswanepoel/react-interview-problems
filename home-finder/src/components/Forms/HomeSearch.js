@@ -101,7 +101,6 @@ const HomeSearch = ({ updateSearchResults }) => {
     parkingInputBlurHandler(true);
 
     // If this form is not valid, don't continue
-    console.log("Is valid: ", locationValueValid);
     if (
       !locationValueValid ||
       !sizeValueValid ||

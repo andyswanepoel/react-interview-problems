@@ -1,15 +1,18 @@
 import Section from "../Layout/Section";
 import HomeSearch from "../Forms/HomeSearch";
 import SearchResultsTable from "../Tables/SearchResultsTable";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const SearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchInitiated, setsearchInitiated] = useState(false);
 
+  const searchResultsRef = useRef();
+
   const updateSearchResults = (newResults) => {
     if (searchInitiated === false) setsearchInitiated(true);
     setSearchResults(newResults);
+    searchResultsRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -24,7 +27,7 @@ const SearchPage = () => {
         <HomeSearch updateSearchResults={updateSearchResults} />
       </Section>
       {searchInitiated === true && (
-        <Section>
+        <Section ref={searchResultsRef}>
           {searchResults.length === 0 && (
             <p style={{ textAlign: "center" }}>
               No results found. Please update your criteria or try again later.

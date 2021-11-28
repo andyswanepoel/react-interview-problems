@@ -5,8 +5,6 @@ const useTableSort = (initialSortKey = "") => {
   const [sortAsc, setSortAsc] = useState(true);
 
   const updateSortKey = (selectedSortKey) => {
-    console.log("selectedSortKey: ");
-    console.log(selectedSortKey);
     if (sortKey === selectedSortKey) return;
 
     setSortKey(selectedSortKey);
@@ -14,8 +12,6 @@ const useTableSort = (initialSortKey = "") => {
   };
 
   const updateSortAsc = (selectedSortKey) => {
-    console.log("selectedSortKey: ");
-    console.log(selectedSortKey);
     if (sortKey !== selectedSortKey) return;
 
     setSortAsc((currentSortAsc) => !currentSortAsc);
