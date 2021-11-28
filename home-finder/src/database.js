@@ -8,7 +8,8 @@ export const homes = [
     squarefeet: "450",
     bed: 2,
     bath: 2,
-    parking: "false"
+    parking: "false",
+    price: 859000
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ export const homes = [
     squarefeet: "485",
     bed: 1,
     bath: 1,
-    parking: "true"
+    parking: "true",
+    price: 685000
   },
   {
     id: 3,
@@ -30,7 +32,8 @@ export const homes = [
     squarefeet: "1200",
     bed: 5,
     bath: 4,
-    parking: "true"
+    parking: "true",
+    price: 1645000
   },
   {
     id: 4,
@@ -41,7 +44,8 @@ export const homes = [
     squarefeet: "1600",
     bed: 3,
     bath: 3,
-    parking: "true"
+    parking: "true",
+    price: 1200000
   },
   {
     id: 5,
@@ -52,7 +56,8 @@ export const homes = [
     squarefeet: "350",
     bed: 2,
     bath: 2,
-    parking: "false"
+    parking: "false",
+    price: 990000
   },
   {
     id: 6,
@@ -63,7 +68,8 @@ export const homes = [
     squarefeet: "485",
     bed: 1,
     bath: 1,
-    parking: "true"
+    parking: "true",
+    price: 1100000
   },
   {
     id: 7,
@@ -74,7 +80,8 @@ export const homes = [
     squarefeet: "1485",
     bed: 5,
     bath: 4,
-    parking: "true"
+    parking: "true",
+    price: 2220000
   },
   {
     id: 8,
@@ -85,6 +92,7 @@ export const homes = [
     squarefeet: "2000",
     bed: 3,
     bath: 3,
-    parking: "true"
+    parking: "true",
+    price: 2000000
   }
 ];

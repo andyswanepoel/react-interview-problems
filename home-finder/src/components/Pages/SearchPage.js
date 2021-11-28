@@ -40,7 +40,8 @@ const SearchPage = () => {
                 { displayText: "Size (sqft)", key: "squarefeet" },
                 { displayText: "Bedrooms", key: "bed" },
                 { displayText: "Bathrooms", key: "bath" },
-                { displayText: "Parking", key: "parking" }
+                { displayText: "Parking", key: "parking" },
+                { displayText: "Listing Price", key: "price" }
               ]}
               results={searchResults}
             />

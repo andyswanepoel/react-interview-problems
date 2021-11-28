@@ -9,6 +9,12 @@ const SearchResultsTable = ({ headers, results }) => {
     resultsTableUpdateSortAsc
   ] = useTableSort();
 
+  var formatCurrency = new Intl.NumberFormat("en-CA", {
+    style: "currency",
+    currency: "CAD",
+    maximumFractionDigits: 0
+  });
+
   const sortedResults = results.sort((a, b) => {
     const value1 = isNaN(a[resultsTableSortKey])
       ? a[resultsTableSortKey]
@@ -73,6 +79,9 @@ const SearchResultsTable = ({ headers, results }) => {
                   <td className={styles["table-cell"]}>{result.bath}</td>
                   <td className={styles["table-cell"]}>
                     {result.parking === "true" ? "Yes" : "No"}
+                  </td>
+                  <td className={styles["table-cell"]}>
+                    {formatCurrency.format(result.price)}
                   </td>
                 </tr>
               );

@@ -148,7 +148,7 @@ const HomeSearch = ({ updateSearchResults }) => {
 
     // These are the filters that we'll pass to our DB query
     // If we had a real DB, we could write our query to include this
-    const filters = [
+    const queryParams = [
       {
         field: "location",
         value: locationValue
@@ -172,7 +172,7 @@ const HomeSearch = ({ updateSearchResults }) => {
     ];
 
     try {
-      const results = await queryDatabase(filters);
+      const results = await queryDatabase(queryParams);
       updateSearchResults(results);
     } catch (error) {
       updateSearchResults([]);
