@@ -30,11 +30,15 @@ In the absence of a database, I'll store the houses in `houses.js` file:
 ```js
     const houses = [
         {
-            location: "Toronto",
-            size: "500-600",
-            beds: 2,
-            baths: 2,
-            parking: false
+            id: 2,
+            location: "tor",
+            city: "Toronto",
+            province: "Ontario",
+            size: "small",
+            squarefeet: "485",
+            bed: 1,
+            bath: 1,
+            parking: "true"
         },
         ...
     ]
