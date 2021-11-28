@@ -96,6 +96,7 @@ const HomeSearch = ({ updateSearchResults }) => {
     return results;
   };
 
+  // This function will check if the form is valid and will focus the first input that is invalid
   const isFormInvalid = () => {
     const inputs = [
       {
@@ -146,7 +147,7 @@ const HomeSearch = ({ updateSearchResults }) => {
     // If this form is not valid, don't continue
     if (isFormInvalid()) return;
 
-    // These are the filters that we'll pass to our DB query
+    // These are the query parameters that we'll pass to our DB query
     // If we had a real DB, we could write our query to include this
     const queryParams = [
       {
