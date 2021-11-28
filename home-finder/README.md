@@ -22,7 +22,7 @@ This is a list of components, in order of importance to the App:
 - [X] Table for displaying data
 - [ ] Registration
 - [ ] Login
-- [ ] Routing
+- [ ] Routing - could have protected routes to force login/registration
 
 ## Data Storage
 In the absence of a database, I'll store the houses in `houses.js` file:
