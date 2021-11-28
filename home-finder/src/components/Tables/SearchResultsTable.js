@@ -72,7 +72,7 @@ const SearchResultsTable = ({ headers, results }) => {
                   <td className={styles["table-cell"]}>{result.bed}</td>
                   <td className={styles["table-cell"]}>{result.bath}</td>
                   <td className={styles["table-cell"]}>
-                    {result.parking == "true" ? "Yes" : "No"}
+                    {result.parking === "true" ? "Yes" : "No"}
                   </td>
                 </tr>
               );
