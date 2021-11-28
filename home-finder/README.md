@@ -1,4 +1,4 @@
-# House Finder App
+# Home Finder App
 
 ## Problem Statement:
 
@@ -22,10 +22,10 @@ This is a list of components, in order of importance to the App:
 - [X] Table for displaying data
 - [ ] Registration
 - [ ] Login
-- [ ] Routing - could have protected routes to force login/registration
+- [ ] Routing - could have protected routes to force redirect to login/registration
 
 ## Data Storage
-In the absence of a database, I'll store the houses in `houses.js` file:
+In the absence of a database, I'll store the homes in `database.js` file:
 
 ```js
     const houses = [
@@ -38,7 +38,8 @@ In the absence of a database, I'll store the houses in `houses.js` file:
             squarefeet: "485",
             bed: 1,
             bath: 1,
-            parking: "true"
+            parking: "true",
+            price: 1000000
         },
         ...
     ]
@@ -49,7 +50,6 @@ In the absence of a database, I'll store the houses in `houses.js` file:
 - User enters data on the form
 - Frontend validation occurs on inputs, ie:
   - not empty
-  - could start the select on "Any" option
 - Query the "database" to look for any matches
 - Display results
-- Bonus: sort results
+- Sort results
