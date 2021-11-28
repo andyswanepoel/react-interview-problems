@@ -10,8 +10,10 @@ function App() {
   }, []);
 
   return (
+    // Would wrap this in some UserContext if a user was logged in to show different
     <>
       <Header />
+      {/* Could use some sort of routing here to show different pages */}
       <SearchPage />
     </>
   );

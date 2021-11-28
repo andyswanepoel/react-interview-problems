@@ -33,11 +33,11 @@ const SearchPage = () => {
           {searchResults.length > 0 && (
             <SearchResultsTable
               headers={[
-                "Location",
-                "Size (sqft)",
-                "Bedrooms",
-                "Bathrooms",
-                "Parking"
+                { displayText: "Location", key: "city" },
+                { displayText: "Size (sqft)", key: "squarefeet" },
+                { displayText: "Bedrooms", key: "bed" },
+                { displayText: "Bathrooms", key: "bath" },
+                { displayText: "Parking", key: "parking" }
               ]}
               results={searchResults}
             />

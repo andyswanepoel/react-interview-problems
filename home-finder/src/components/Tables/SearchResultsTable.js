@@ -1,7 +1,44 @@
+import { useEffect } from "react";
+import useTableSort from "../../hooks/use-table-sort";
 import styles from "./Tables.module.scss";
 
 const SearchResultsTable = ({ headers, results }) => {
-  //   const [] = useTableSort();
+  const [
+    resultsTableSortKey,
+    resultsTableSortAsc,
+    resultsTableUpdateSortKey,
+    resultsTableUpdateSortAsc
+  ] = useTableSort();
+
+  const sortedResults = results.sort((a, b) => {
+    const value1 = isNaN(a[resultsTableSortKey])
+      ? a[resultsTableSortKey]
+      : parseInt(a[resultsTableSortKey]);
+    const value2 = isNaN(b[resultsTableSortKey])
+      ? b[resultsTableSortKey]
+      : parseInt(b[resultsTableSortKey]);
+    if (value1 < value2) {
+      return resultsTableSortAsc ? -1 : 1;
+    }
+    if (value1 > value2) {
+      return resultsTableSortAsc ? 1 : -1;
+    }
+    return 0;
+  });
+
+  const resultsTableHandleSortUpdate = (selectedSortKey) => {
+    resultsTableUpdateSortKey(selectedSortKey);
+    resultsTableUpdateSortAsc(selectedSortKey);
+  };
+
+  const resultsTableHeaderSortingClass = (headerSortKey) => {
+    if (headerSortKey !== resultsTableSortKey) return "";
+
+    if (resultsTableSortAsc === true) return styles["sort-ascending"];
+
+    return styles["sort-descending"];
+  };
+
   return (
     <>
       <h2 style={{ textAlign: "center" }}>Your Search Results</h2>
@@ -13,14 +50,20 @@ const SearchResultsTable = ({ headers, results }) => {
           <thead>
             <tr>
               {headers.map((header) => (
-                <th className={styles["table-header"]} key={header}>
-                  {header}
+                <th
+                  onClick={() => resultsTableHandleSortUpdate(header.key)}
+                  className={`${
+                    styles["table-header"]
+                  } ${resultsTableHeaderSortingClass(header.key)}`}
+                  key={header.key}
+                >
+                  {header.displayText}
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {results.map((result) => {
+            {sortedResults.map((result) => {
               return (
                 <tr key={result.id} className={styles["table-row"]}>
                   <td className={styles["table-cell"]}>
