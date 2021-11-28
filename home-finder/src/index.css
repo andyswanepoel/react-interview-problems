@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Scada:wght@400;700&display=swap");
+
+:root {
+  --primary-colour: #d4ecc8;
+  --secondary-colour: #066250;
+  --primary-bg-colour: #e9f9ff;
+  --secondary-bg-colour: #d3d5dd;
+  --primary-section-colour: #fff;
+  --secondary-section-colour: #efefef;
+  --header-height: 7rem;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  font-size: 2rem;
+  font-family: "Scada", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  padding-top: var(--header-height);
+}

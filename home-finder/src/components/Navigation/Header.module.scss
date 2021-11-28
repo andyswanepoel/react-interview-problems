@@ -1,0 +1,17 @@
+.container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--primary-bg-colour);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.2rem solid var(--secondary-colour);
+  z-index: 10;
+}
+
+.logo {
+  display: block;
+  width: 15rem;
+  height: auto;
+}
