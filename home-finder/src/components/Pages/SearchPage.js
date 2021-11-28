@@ -1,7 +1,7 @@
 import Section from "../Layout/Section";
 import HomeSearch from "../Forms/HomeSearch";
 import SearchResultsTable from "../Tables/SearchResultsTable";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 const SearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
