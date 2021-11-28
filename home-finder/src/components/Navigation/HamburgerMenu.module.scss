@@ -14,6 +14,7 @@
   height: 0.5rem;
   background-color: black;
   width: 3rem;
+
   transition: background-color 0.4s ease-in-out;
   &::after,
   &::before {
@@ -26,11 +27,11 @@
     transition: transform 0.4s ease-in-out;
   }
   &::after {
-    bottom: 0.2rem;
+    bottom: 0.3rem;
     transform-origin: center left;
   }
   &::before {
-    top: 0.2rem;
+    top: 0.3rem;
     transform-origin: center left;
   }
 }
@@ -50,7 +51,7 @@
   width: 25rem;
   background-color: var(--primary-bg-colour);
   padding: 2rem;
-  margin-top: 1.9rem;
+  margin-top: 1.6rem;
   border: 0.1rem solid var(--secondary-colour);
   border-top-width: 1rem;
   list-style-type: none;
