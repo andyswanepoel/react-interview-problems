@@ -6,6 +6,7 @@ import useInput from "../../hooks/use-input";
 const HomeSearch = ({ updateSearchResults }) => {
   const [
     locationValue,
+    locationInputRef,
     locationValueValid,
     locationInputInvalid,
     locationErrorMessage,
@@ -19,6 +20,7 @@ const HomeSearch = ({ updateSearchResults }) => {
   ]);
   const [
     sizeValue,
+    sizeInputRef,
     sizeValueValid,
     sizeInputInvalid,
     sizeErrorMessage,
@@ -32,6 +34,7 @@ const HomeSearch = ({ updateSearchResults }) => {
   ]);
   const [
     bedValue,
+    bedInputRef,
     bedValueValid,
     bedInputInvalid,
     bedErrorMessage,
@@ -45,6 +48,7 @@ const HomeSearch = ({ updateSearchResults }) => {
   ]);
   const [
     bathValue,
+    bathInputRef,
     bathValueValid,
     bathInputInvalid,
     bathErrorMessage,
@@ -58,6 +62,7 @@ const HomeSearch = ({ updateSearchResults }) => {
   ]);
   const [
     parkingValue,
+    parkingInputRef,
     parkingValueValid,
     parkingInputInvalid,
     parkingErrorMessage,
@@ -75,6 +80,7 @@ const HomeSearch = ({ updateSearchResults }) => {
     const data = await Promise.resolve(
       JSON.parse(localStorage.getItem("homes"))
     );
+
     const results = filters.reduce((acc, filter) => {
       if (filter.value === "any") return acc;
 
@@ -90,6 +96,43 @@ const HomeSearch = ({ updateSearchResults }) => {
     return results;
   };
 
+  const isFormInvalid = () => {
+    const inputs = [
+      {
+        valid: locationValueValid,
+        ref: locationInputRef
+      },
+      {
+        valid: sizeValueValid,
+        ref: sizeInputRef
+      },
+      {
+        valid: bedValueValid,
+        ref: bedInputRef
+      },
+      {
+        valid: bathValueValid,
+        ref: bathInputRef
+      },
+      {
+        valid: parkingValueValid,
+        ref: parkingInputRef
+      }
+    ];
+
+    const firstInvalid = inputs.find((input) => !input.valid);
+    if (firstInvalid !== undefined) {
+      firstInvalid.ref.current.focus();
+    }
+    return (
+      !locationValueValid ||
+      !sizeValueValid ||
+      !bedValueValid ||
+      !bathValueValid ||
+      !parkingValueValid
+    );
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -101,14 +144,7 @@ const HomeSearch = ({ updateSearchResults }) => {
     parkingInputBlurHandler(true);
 
     // If this form is not valid, don't continue
-    if (
-      !locationValueValid ||
-      !sizeValueValid ||
-      !bedValueValid ||
-      !bathValueValid ||
-      !parkingValueValid
-    )
-      return;
+    if (isFormInvalid()) return;
 
     // These are the filters that we'll pass to our DB query
     // If we had a real DB, we could write our query to include this
@@ -162,6 +198,7 @@ const HomeSearch = ({ updateSearchResults }) => {
             { displayText: "Vancouver, BC", value: "van" },
             { displayText: "Montreal, QC", value: "mon" }
           ]}
+          ref={locationInputRef}
         />
         <SelectInput
           id="size"
@@ -178,6 +215,7 @@ const HomeSearch = ({ updateSearchResults }) => {
             { displayText: "500-999", value: "medium" },
             { displayText: "1000+", value: "large" }
           ]}
+          ref={sizeInputRef}
         />
         <SelectInput
           id="bed"
@@ -194,6 +232,7 @@ const HomeSearch = ({ updateSearchResults }) => {
             { displayText: "2+", value: "2" },
             { displayText: "3+", value: "3" }
           ]}
+          ref={bedInputRef}
         />
         <SelectInput
           id="bath"
@@ -210,6 +249,7 @@ const HomeSearch = ({ updateSearchResults }) => {
             { displayText: "2+", value: "2" },
             { displayText: "3+", value: "3" }
           ]}
+          ref={bathInputRef}
         />
         <SelectInput
           id="parking"
@@ -225,6 +265,7 @@ const HomeSearch = ({ updateSearchResults }) => {
             { displayText: "Yes", value: "true" },
             { displayText: "No", value: "false" }
           ]}
+          ref={parkingInputRef}
         />
         <Button type="submit" text="Find your home!" />
       </form>
